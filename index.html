@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/b594739091.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Container -->
+    <div class="flex items-center justify-center text-center flex-wrap w-[100%] h-[100vh] px-20">
+    <div class="music-player">
+      <!--Music Player  -->
+      <div class="flex flex-row">
+        <img s="flex flex-row " />
+        <img
+          class="w-64 z-10 shadow-md rounded-md"
+          src="./images/TaylorSwift.jpg"
+        />
+        <img class="w-64 relative left-[-150px]" src="./images/disc.png" />
+      </div>
+      <div class="pt-10">
+        <h1>All Too Well(Taylor's Version)</h1>
+        <p>Taylor Swift</p>
+      </div>
+
+      <!-- Audio Controls -->
+      <div class="pt-10">
+        <audio id="song">
+          <source
+            src="media/Taylor Swift - All Too Well (10 Minute Version) (Taylor s Version) (From The Vault) (Lyrics).mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+        <div class="flex justify-between">
+          <div class="currentTime">00:00</div>
+          <div class="totalDuration">00:00</div>
+        </div>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="0"
+          id="progress"
+          class="seekSlider"
+          onchange="seekTo()"
+        />
+      </div>
+      <!-- Button Controller -->
+      <div class="controls">
+        <div><i class="fa-solid fa-backward-step"></i></div>
+        <div onclick="playPause()">
+          <i class="fa-solid fa-play" id="controlIcon"></i>
+        </div>
+        <div><i class="fa-solid fa-forward-step"></i></div>
+      </div>
+    </div>
+    <!-- Panel 2 -->
+    <div class="right-panel w-[900px] px-[30px] py-[30px] mx-[50px] text-left">
+      <div class="pb-[60px]">
+        <h1 class="text-6xl text-white opacity-80 font-bold">Explore</h1>
+      </div>
+      <div class="tab-group flex justify-start pb-10">
+        <button
+          onclick="showContent('lyrics')"
+          class="btn-lyrics text-4xl font-bold text-white opacity-80 font-bold pr-16 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 active"
+        >
+        Lyrics
+        </button>
+        <button
+          onclick="showContent('albums')"
+          class="btn-albums text-4xl font-bold text-white opacity-80 font-bold pr-16 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+        >
+          Other Albums
+        </button>
+        <button
+          onclick="showContent('artists')"
+          class="btn-rel-artists text-4xl font-bold text-white opacity-80 font-bold transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+        >
+          Related Artists
+        </button>
+      </div>
+      <div class="content-container">
+        <div class="lyrics-container">
+          <div
+            class="content-holder h-auto flex overflow-x-auto overscroll-x-contain text-3xl text-white"
+          ></div>
+        </div>
+        <div class="album-container">
+          <div class="content-holder text-3xl text-white"></div>
+        </div>
+        <div class="artists-container">
+          <div class="content-holder text-3xl text-red"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
