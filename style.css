@@ -33,6 +33,7 @@ body {
   cursor: pointer;
   margin: 40px 0;
 }
+
 #progress::-webkit-slider-thumb {
   -webkit-appearance: none;
   background: #f53192;
